@@ -1,34 +1,19 @@
 # Repo Doctor
 
+[![PyPI version](https://img.shields.io/pypi/v/repo-doctor)](https://pypi.org/project/repo-doctor/)
+[![CI](https://github.com/JasperLiu1999/repo-doctor/actions/workflows/ci.yml/badge.svg)](https://github.com/JasperLiu1999/repo-doctor/actions/workflows/ci.yml)
+[![Python versions](https://img.shields.io/pypi/pyversions/repo-doctor)](https://pypi.org/project/repo-doctor/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 > Turn any repository into an open-source-ready, professional repo in one command.
 
 Repo Doctor scans your Git repository, scores it against 17 open-source best-practice rules, and auto-generates any missing files — README, LICENSE, CI workflow, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY policy, and .gitignore — without ever touching your source code.
 
 ## Demo
 
-```
-$ repo-doctor scan my-project/
-
-╭──────────────────────────── Repo Doctor ─────────────────────────────╮
-│ Score: 21/100  Grade: D                                              │
-│ Stack: node  |  Passed: 5  |  Failed: 12  |  Total: 17              │
-╰──────────────────────────────────────────────────────────────────────╯
-  ERR  CI pipeline exists              FAIL  No CI/CD pipeline found. (auto-fixable)
-  ERR  LICENSE present                 FAIL  No LICENSE file found. (auto-fixable)
-  ERR  README present                  FAIL  No README file found. (auto-fixable)
-  ERR  .gitignore present              FAIL  No .gitignore file found. (auto-fixable)
-  ...
-
-$ repo-doctor fix --yes my-project/
-
-  Applied 7 change(s).
-  Score improved by 67 points!
-
-╭──────────────────────────── Repo Doctor ─────────────────────────────╮
-│ Score: 88/100  Grade: B                                              │
-│ Stack: node  |  Passed: 14  |  Failed: 3  |  Total: 17              │
-╰──────────────────────────────────────────────────────────────────────╯
-```
+<p align="center">
+  <img src="demo.gif" alt="repo-doctor demo" width="880">
+</p>
 
 ## Install
 
@@ -197,7 +182,7 @@ Add Repo Doctor to your GitHub Actions workflow:
 
 ```yaml
 - name: Repo Doctor
-  uses: JasperLiu1999/repo-doctor/action@main
+  uses: JasperLiu1999/repo-doctor/action@v0
   with:
     strict: true  # fail the build if issues are found
 ```
@@ -207,7 +192,7 @@ The action posts the full report to the GitHub Actions summary and exports `scor
 ```yaml
 - name: Repo Doctor
   id: doctor
-  uses: JasperLiu1999/repo-doctor/action@main
+  uses: JasperLiu1999/repo-doctor/action@v0
 
 - name: Check score
   run: echo "Score is ${{ steps.doctor.outputs.score }}"
