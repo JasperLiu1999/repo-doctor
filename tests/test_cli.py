@@ -12,7 +12,7 @@ runner = CliRunner()
 def test_version() -> None:
     result = runner.invoke(app, ["--version"])
     assert result.exit_code == 0
-    assert "0.1.0" in result.output
+    assert "repo-doctor" in result.output
 
 
 def test_help() -> None:
