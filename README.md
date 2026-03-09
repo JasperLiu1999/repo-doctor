@@ -25,7 +25,10 @@ Repo Doctor scans your Git repository, scores it against 17 open-source best-pra
 # macOS / Linux
 brew install pipx && pipx install repo-doctor
 
-# or with uv (faster)
+# Windows (requires Python 3.10+)
+pip install pipx && pipx install repo-doctor
+
+# or with uv (any platform, faster)
 uv tool install repo-doctor
 ```
 
@@ -39,7 +42,7 @@ pip install repo-doctor
 # If the command isn't on PATH after install:
 python -m repo_doctor scan .
 
-# No Python? Download a standalone binary from
+# No Python at all? Download a standalone binary:
 # https://github.com/JaaasperLiu/repo-doctor/releases
 ```
 
